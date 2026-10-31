@@ -8,7 +8,7 @@ import org.gradle.language.jvm.tasks.ProcessResources
 tasks.withType<JavaExec>().configureEach {
     if (name.startsWith("runServer")) {
         doFirst {
-            val clientOnly = listOf("angelica", "ModularUI2", "catalogue", "wawelauth")
+            val clientOnly = listOf("angelica", "ModularUI2", "catalogue", "wawelauth", "advanced-world-selection")
             classpath = classpath.filter { file -> clientOnly.none { file.name.contains(it, ignoreCase = true) } }
         }
     }

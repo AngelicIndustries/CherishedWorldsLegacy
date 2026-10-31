@@ -26,6 +26,8 @@ Install on the client with Forge 10.13.4.1614 and [UniMixins](https://github.com
 
 [Et Futurum Requiem](https://github.com/GTNewHorizons/Et-Futurum-Requiem) is optional. Compatibility is tested against 2.6.65-GTNH with world screenshots enabled and disabled.
 
+[Advanced World Selection 1.7.10-8](https://www.curseforge.com/minecraft/mc-mods/advanced-world-selection/files/2580520) is currently unsupported. Its replacement world-selection screen bypasses the favorites controls and EFR search. It is included in the development client for compatibility testing, excluded from development server runs, and is not a published dependency.
+
 ## Building
 
 ```sh
