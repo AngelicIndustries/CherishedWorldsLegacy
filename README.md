@@ -15,6 +15,7 @@ Favorite worlds and servers in Minecraft 1.7.10.
 * Use **Ctrl+Shift+F** to toggle the selected world or server.
 * Works with Et Futurum Requiem's world screenshots and search, including filtered lists.
 * Keeps favorites when you change a saved server's name or address.
+* Hover over a world for a regular mouse-following tooltip with its seed, generator, day/time, and saved player position and dimension. Hold **Ctrl** to see saved/current mod differences.
 
 Favorites are stored in `cherishedworlds-favorites.dat` in the Minecraft instance folder, using upstream's uncompressed NBT format. Writes use a temporary file and keep the previous version as `.bak`. If the file cannot be read, it is preserved and changes are blocked until it is repaired or moved aside.
 
@@ -26,6 +27,16 @@ Install on the client with Forge 10.13.4.1614 and [UniMixins](https://github.com
 
 [Et Futurum Requiem](https://github.com/GTNewHorizons/Et-Futurum-Requiem) is optional. Compatibility is tested against 2.6.65-GTNH with world screenshots enabled and disabled.
 
+## Configuration
+
+Use **Mods > Cherished Worlds Legacy > Config**, or edit `config/cherishedworlds.cfg`. Changes made in the config screen apply immediately.
+
+World tooltips are enabled by default after a 250 ms hover. You can change the delay, require Shift or Ctrl, disable individual information fields, or disable the tooltip entirely. Text uses Minecraft's normal font size, wraps to the available space, and follows the pointer. Long mod lists are capped to fit the screen.
+
+Mod details use Ctrl by default; you can show them on ordinary hover, use Shift, or hide them. Missing, changed, and added mods appear before optional unchanged entries. The comparison uses Forge's mod list from the last world save and the currently active mods. It includes client mods and is not a compatibility verdict.
+
+Details are read from `level.dat`, with a labeled `level.dat_old` fallback. No save data is written. Metadata is cached while the screen is open and refreshed when it is reopened. Advanced World Selection is no longer included or integrated; these tooltips work on the standard world screen with or without EFR.
+
 ## Building
 
 ```sh
@@ -36,7 +47,7 @@ Java 8-compatible output using the GTNH buildscript. Before the first tag, use `
 
 The development runtime includes the shared Angelic Industries test environment. These development mods are not bundled or published as required dependencies.
 
-Validation includes 12 Java 8 unit tests and client smoke tests with EFR absent, screenshots disabled, and screenshots enabled. The client checks cover filtering, selection, deletion protection, world creation, saved-server edits and join targets, LAN ordering, and GUI scaling. Dedicated-server startup is also checked.
+Validation includes Java 8 unit tests and client smoke tests with EFR absent, screenshots disabled, and screenshots enabled. The client checks cover filtering, selection, deletion protection, world creation, saved-server edits and join targets, LAN ordering, and GUI scaling. Dedicated-server startup is also checked.
 
 ## Credits
 

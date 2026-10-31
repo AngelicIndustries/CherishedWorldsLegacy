@@ -7,3 +7,7 @@
 * Support Et Futurum Requiem world screenshots and search without requiring EFR.
 * Save upstream-compatible favorites with atomic replacement, backups, and corrupt-file protection.
 * Use the GTNH buildscript, UniMixins, Java 8-compatible output, and upstream artwork and translations.
+* Replace the Advanced World Selection integration with configurable mouse-following tooltips on the standard world screen.
+* Show world seed, generator, day/time, and saved player position and dimension using the normal Minecraft tooltip font and screen-edge wrapping.
+* Hold Ctrl for saved/current mod differences, with configurable activation, information fields, hover delay, width, and mod-list limits in the mod config screen.
+* Read existing world metadata without modifying saves and retain native EFR screenshots and search.

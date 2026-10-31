@@ -4,6 +4,7 @@ package com.illusivesoulworks.cherishedworlds.client.gui;
 
 import com.illusivesoulworks.cherishedworlds.client.ClientFavorites;
 import com.illusivesoulworks.cherishedworlds.client.favorites.FavoriteOrder;
+import com.illusivesoulworks.cherishedworlds.client.worldinfo.WorldInfoTooltips;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.gui.GuiButton;
@@ -11,6 +12,8 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.world.storage.SaveFormatComparator;
 
 public final class WorldFavoritesController {
+    private final WorldInfoTooltips tooltips = new WorldInfoTooltips();
+    public void clearTooltips() { tooltips.clear(); }
     private List<SaveFormatComparator> previous;
     private int previousSize;
     private long revision = -1;
@@ -50,7 +53,10 @@ public final class WorldFavoritesController {
             StarRenderer.draw(star, favorite, over);
             if (over) hovered = favorite;
         }
-        if (hovered != null) StarRenderer.tooltip(gui, hovered, x, y);
+        if (hovered != null) {
+            tooltips.resetHover();
+            StarRenderer.tooltip(gui, hovered, x, y);
+        } else tooltips.draw(gui, access, x, y);
         StarRenderer.error(gui);
     }
     public boolean click(GuiScreen gui, WorldScreenAccess access, int x, int y, int button) {

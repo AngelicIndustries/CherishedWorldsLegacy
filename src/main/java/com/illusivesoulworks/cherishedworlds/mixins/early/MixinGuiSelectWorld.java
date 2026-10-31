@@ -35,7 +35,10 @@ public abstract class MixinGuiSelectWorld extends GuiScreen implements WorldScre
     @Override public boolean cherishedworlds$click(int x, int y, int button) { return cherishedworlds$controller.click(this, this, x, y, button); }
     @Override public boolean cherishedworlds$toggleSelected() { return cherishedworlds$controller.toggle(this, this, field_146640_r); }
     @Inject(method = "initGui", at = @At("RETURN"))
-    private void cherishedworlds$init(CallbackInfo ci) { cherishedworlds$refresh(); }
+    private void cherishedworlds$init(CallbackInfo ci) {
+        cherishedworlds$controller.clearTooltips();
+        cherishedworlds$refresh();
+    }
     @Inject(method = "drawScreen", at = @At("HEAD"))
     private void cherishedworlds$refresh(int x, int y, float tick, CallbackInfo ci) { cherishedworlds$refresh(); }
     @Inject(method = "drawScreen", at = @At("RETURN"))
