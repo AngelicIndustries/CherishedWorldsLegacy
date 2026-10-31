@@ -1,0 +1,11 @@
+[{
+  "modid": "${modId}",
+  "name": "Cherished Worlds Legacy",
+  "description": "Favorite worlds and servers, keep them at the top of the list, and protect them from accidental deletion.",
+  "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}",
+  "url": "https://github.com/AngelicIndustries/CherishedWorldsLegacy",
+  "authorList": ["Illusive Soulworks", "Angelic Industries"],
+  "credits": "Cherished Worlds by Illusive Soulworks, backported by Angelic Industries.",
+  "logoFile": "assets/cherishedworlds/logo.png"
+}]
