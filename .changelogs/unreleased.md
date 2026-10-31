@@ -7,6 +7,3 @@
 * Support Et Futurum Requiem world screenshots and search without requiring EFR.
 * Save upstream-compatible favorites with atomic replacement, backups, and corrupt-file protection.
 * Use the GTNH buildscript, UniMixins, Java 8-compatible output, and upstream artwork and translations.
-* Support Advanced World Selection 1.7.10-8 with favorites, deletion protection, and matching icon/tooltip metadata after sorting.
-* Add EFR-style search to the advanced screen when EFR world thumbnails are enabled.
-* Use EFR screenshot capture/loading on the advanced screen without competing icon writers; retain AWS icon handling when EFR is absent or disabled.

@@ -26,10 +26,6 @@ Install on the client with Forge 10.13.4.1614 and [UniMixins](https://github.com
 
 [Et Futurum Requiem](https://github.com/GTNewHorizons/Et-Futurum-Requiem) is optional. Compatibility is tested against 2.6.65-GTNH with world screenshots enabled and disabled.
 
-[Advanced World Selection 1.7.10-8](https://www.curseforge.com/minecraft/mc-mods/advanced-world-selection/files/2580520) is supported. Favorites and deletion protection work on its replacement screen, and world icons and tooltip data stay attached to the correct world when sorting or searching.
-
-With EFR's `worldSaveThumbnails` enabled, the advanced screen gains EFR-style search and uses EFR's screenshot capture and loading. EFR owns `icon.png` updates so the two mods do not compete over the file. With EFR absent or that feature disabled, Advanced World Selection keeps its own icon handling. Both mods are optional; they are included in the development client for compatibility testing and are not published dependencies.
-
 ## Building
 
 ```sh
@@ -40,7 +36,7 @@ Java 8-compatible output using the GTNH buildscript. Before the first tag, use `
 
 The development runtime includes the shared Angelic Industries test environment. These development mods are not bundled or published as required dependencies.
 
-Validation includes 15 Java 8 unit tests and client smoke tests with EFR absent, screenshots disabled, and screenshots enabled. The client checks cover filtering, selection, deletion protection, world creation, saved-server edits and join targets, LAN ordering, and GUI scaling. Advanced World Selection checks additionally cover per-world metadata and icon identity after sorting/filtering, filtered deletion and launch targets, and EFR screenshot capture on pause/quit. Dedicated-server startup is also checked.
+Validation includes 12 Java 8 unit tests and client smoke tests with EFR absent, screenshots disabled, and screenshots enabled. The client checks cover filtering, selection, deletion protection, world creation, saved-server edits and join targets, LAN ordering, and GUI scaling. Dedicated-server startup is also checked.
 
 ## Credits
 

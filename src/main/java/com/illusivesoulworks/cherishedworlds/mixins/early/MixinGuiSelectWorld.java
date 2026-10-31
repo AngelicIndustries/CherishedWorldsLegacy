@@ -3,7 +3,6 @@
 package com.illusivesoulworks.cherishedworlds.mixins.early;
 
 import com.illusivesoulworks.cherishedworlds.client.ClientFavorites;
-import com.illusivesoulworks.cherishedworlds.client.gui.CustomWorldScreen;
 import com.illusivesoulworks.cherishedworlds.client.gui.WorldFavoritesController;
 import com.illusivesoulworks.cherishedworlds.client.gui.WorldScreenAccess;
 import java.util.List;
@@ -38,13 +37,9 @@ public abstract class MixinGuiSelectWorld extends GuiScreen implements WorldScre
     @Inject(method = "initGui", at = @At("RETURN"))
     private void cherishedworlds$init(CallbackInfo ci) { cherishedworlds$refresh(); }
     @Inject(method = "drawScreen", at = @At("HEAD"))
-    private void cherishedworlds$refresh(int x, int y, float tick, CallbackInfo ci) {
-        if (!(this instanceof CustomWorldScreen)) cherishedworlds$refresh();
-    }
+    private void cherishedworlds$refresh(int x, int y, float tick, CallbackInfo ci) { cherishedworlds$refresh(); }
     @Inject(method = "drawScreen", at = @At("RETURN"))
-    private void cherishedworlds$draw(int x, int y, float tick, CallbackInfo ci) {
-        if (!(this instanceof CustomWorldScreen)) cherishedworlds$controller.draw(this, this, x, y);
-    }
+    private void cherishedworlds$draw(int x, int y, float tick, CallbackInfo ci) { cherishedworlds$controller.draw(this, this, x, y); }
     @Inject(method = "actionPerformed", at = @At("HEAD"), cancellable = true)
     private void cherishedworlds$protectAction(GuiButton button, CallbackInfo ci) {
         String key = WorldFavoritesController.key(this, field_146640_r);
