@@ -1,6 +1,9 @@
 dependencies {
     testImplementation("junit:junit:4.13.2")
     testRuntimeOnly("org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209") { transitive = false }
+    // Optional compatibility APIs. These remain absent from published dependencies.
+    compileOnly(rfg.deobf("curse.maven:advanced-world-selection-244464:2580520"))
+    compileOnly("ganymedes01.etfuturum:Et-Futurum-Requiem:2.6.65-GTNH:dev")
     // Shared development environment; none of these are published dependencies.
     runtimeOnlyNonPublishable("industries.angelic.wawelauth:WawelAuth:996a655-snapshot:dev")
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:Hodgepodge:2.7.216:dev")
