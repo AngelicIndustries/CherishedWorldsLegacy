@@ -20,4 +20,4 @@ plugins {
     id("com.gtnewhorizons.gtnhsettingsconvention") version("2.0.34")
 }
 
-rootProject.name = "FlaxbeardsSteamPower"
+rootProject.name = "CherishedWorldsLegacy"
