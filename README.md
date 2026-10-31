@@ -31,9 +31,9 @@ Install on the client with Forge 10.13.4.1614 and [UniMixins](https://github.com
 
 Use **Mods > Cherished Worlds Legacy > Config**, or edit `config/cherishedworlds.cfg`. Changes made in the config screen apply immediately.
 
-World tooltips are enabled by default after a 250 ms hover. You can change the delay, require Shift or Ctrl, disable individual information fields, or disable the tooltip entirely. Text uses Minecraft's normal font size, wraps to the available space, and follows the pointer. Long mod lists are capped to fit the screen.
+World tooltips are shown immediately by default (0 ms delay). You can change the delay, require Shift or Ctrl, disable individual information fields, or disable the tooltip entirely. Text uses Minecraft's normal font size, wraps to the available space, and follows the pointer. World type, time, and day share a line, followed by labeled X/Z/Y coordinates. Long mod lists are capped to fit the screen.
 
-Mod details use Ctrl by default; you can show them on ordinary hover, use Shift, or hide them. Missing, changed, and added mods appear before optional unchanged entries. The comparison uses Forge's mod list from the last world save and the currently active mods. It includes client mods and is not a compatibility verdict.
+Mod details use Ctrl by default; you can show them on ordinary hover, use Shift, or hide them. Missing, changed, and added mods appear before optional unchanged entries. The comparison uses Forge's mod list from the last world save and the currently active mods. It includes client mods, omits Forge, and is not a compatibility verdict.
 
 Details are read from `level.dat`, with a labeled `level.dat_old` fallback. No save data is written. Metadata is cached while the screen is open and refreshed when it is reopened. Advanced World Selection is no longer included or integrated; these tooltips work on the standard world screen with or without EFR.
 

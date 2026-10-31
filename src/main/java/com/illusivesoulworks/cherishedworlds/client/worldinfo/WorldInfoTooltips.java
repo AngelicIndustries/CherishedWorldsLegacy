@@ -59,37 +59,46 @@ public final class WorldInfoTooltips {
     private List<String> describe(SaveFormatComparator world, WorldInfoData data, boolean shift, boolean ctrl) {
         List<String> lines = new ArrayList<>();
         String name = world.getDisplayName();
-        lines.add("\u00a7f" + (name.isEmpty() ? world.getFileName() : name));
-        lines.add(text("folder", world.getFileName()));
+        lines.add("\u00a7e" + (name.isEmpty() ? world.getFileName() : name));
         if (data == null) { lines.add(text("unavailable")); return lines; }
         if (data.backup) lines.add(text("backup"));
-        if (Config.showSeed && data.seed != null) lines.add(text("seed", data.seed));
+        List<String> summary = new ArrayList<>();
         if (Config.showWorldType && !data.generator.isEmpty()) {
             String key = "generator." + data.generator;
-            lines.add(text("generator", !I18n.format(key).equals(key) ? I18n.format(key) : data.generator));
+            String translated = I18n.format(key);
+            summary.add(I18n.format("cherishedworlds.tooltip.generator", translated.equals(key) ? data.generator : translated));
         }
         if (Config.showTime && data.time != null) {
             long ticks = Math.floorMod(data.time, 24000L);
-            lines.add(text("time", Math.floorDiv(data.time, 24000L),
-                String.format(Locale.ROOT, "%02d:%02d", (ticks / 1000 + 6) % 24, ticks % 1000 * 60 / 1000)));
+            long day = Math.floorDiv(data.time, 24000L) + (ticks + 6000) / 24000 + 1;
+            summary.add(I18n.format("cherishedworlds.tooltip.time",
+                String.format(Locale.ROOT, "%d:%02d", (ticks / 1000 + 6) % 24, ticks % 1000 * 60 / 1000), day));
         }
+        if (!summary.isEmpty()) lines.add(String.join("\u00a77, ", summary));
         if (Config.showPlayer && data.position != null) {
-            lines.add(text("position", String.format(Locale.ROOT, "%.1f, %.1f, %.1f", data.position[0], data.position[1], data.position[2])));
-            if (data.dimension != null) lines.add(text("dimension", dimension(data.dimension)));
+            String coordinates = I18n.format("cherishedworlds.tooltip.position",
+                String.format(Locale.ROOT, "%.0f", Math.floor(data.position[0])),
+                String.format(Locale.ROOT, "%.0f", Math.floor(data.position[2])),
+                String.format(Locale.ROOT, "%.0f", Math.floor(data.position[1])));
+            if (data.dimension != null) coordinates += " \u00a77(" + dimension(data.dimension) + ")";
+            lines.add(coordinates);
         }
+        if (Config.showSeed && data.seed != null) lines.add(text("seed", data.seed));
         if (Config.modDetails.active(shift, ctrl)) addMods(lines, data);
-        else if (Config.modDetails == Config.Activation.CTRL) lines.add(text("holdCtrl"));
-        else if (Config.modDetails == Config.Activation.SHIFT) lines.add(text("holdShift"));
         return lines;
     }
 
     private void addMods(List<String> lines, WorldInfoData data) {
         if (data.mods == null) { lines.add(text("modsUnavailable")); return; }
         if (currentMods.isEmpty()) {
-            for (ModContainer mod : Loader.instance().getActiveModList()) currentMods.put(mod.getModId(), mod.getVersion());
+            for (ModContainer mod : Loader.instance().getActiveModList()) {
+                if (!"Forge".equals(mod.getModId())) currentMods.put(mod.getModId(), mod.getVersion());
+            }
         }
-        lines.add(text("mods", data.mods.size(), currentMods.size()));
-        List<ModComparison.Entry> entries = ModComparison.compare(data.mods, currentMods, Config.showUnchangedMods);
+        Map<String, String> savedMods = new HashMap<>(data.mods);
+        savedMods.remove("Forge");
+        lines.add(text("mods", savedMods.size(), currentMods.size()));
+        List<ModComparison.Entry> entries = ModComparison.compare(savedMods, currentMods, Config.showUnchangedMods);
         if (entries.isEmpty()) lines.add(text("modsSame"));
         int limit = Math.min(entries.size(), Config.maxModLines);
         for (int i = 0; i < limit; i++) {

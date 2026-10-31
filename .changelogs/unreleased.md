@@ -11,3 +11,5 @@
 * Show world seed, generator, day/time, and saved player position and dimension using the normal Minecraft tooltip font and screen-edge wrapping.
 * Hold Ctrl for saved/current mod differences, with configurable activation, information fields, hover delay, width, and mod-list limits in the mod config screen.
 * Read existing world metadata without modifying saves and retain native EFR screenshots and search.
+* Compact the default tooltip to a shared world type/time/day line followed by X/Z/Y coordinates, with no Forge version or modifier-key hint.
+* Show world tooltips immediately by default with a configurable 0 ms hover delay.
