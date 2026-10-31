@@ -1,0 +1,4 @@
+selectWorld.cherishedworlds.favorite=Add to Favorites
+selectWorld.cherishedworlds.unfavorite=Remove from Favorites
+selectWorld.cherishedworlds.shortcut=Ctrl+Shift+F: toggle selected favorite
+selectWorld.cherishedworlds.saveError=Could not save favorites. See the log for details.
