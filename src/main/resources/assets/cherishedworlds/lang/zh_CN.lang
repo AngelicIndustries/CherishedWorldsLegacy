@@ -1,2 +1,35 @@
 selectWorld.cherishedworlds.favorite=添加到书签
 selectWorld.cherishedworlds.unfavorite=从书签中删除
+selectWorld.cherishedworlds.shortcut=Ctrl+Shift+F: 切换所选世界的书签状态
+selectWorld.cherishedworlds.saveError=无法保存书签。详情请查看日志。
+
+cherishedworlds.tooltip.seed=种子: %s
+cherishedworlds.tooltip.generator=§f世界类型: §e%s
+cherishedworlds.tooltip.time=§f世界时间: §e%s§7，§f游戏天数: §e%s
+cherishedworlds.tooltip.position=§fX §e%s  §fZ §e%s  §fY §e%s
+cherishedworlds.tooltip.overworld=主世界
+cherishedworlds.tooltip.nether=下界
+cherishedworlds.tooltip.end=末地
+cherishedworlds.tooltip.unavailable=无法读取世界详细信息。
+cherishedworlds.tooltip.backup=当前显示的是 level.dat_old 中的备份信息。
+cherishedworlds.tooltip.mods=模组: 已保存 %s 个，已安装 %s 个
+cherishedworlds.tooltip.modsUnavailable=没有可用的已保存 Forge 模组列表。
+cherishedworlds.tooltip.modsSame=模组版本没有差异。
+cherishedworlds.tooltip.modMissing=缺失: %s（%s）
+cherishedworlds.tooltip.modChanged=已更改: %s（%s -> %s）
+cherishedworlds.tooltip.modAdded=新增: %s（%s）
+cherishedworlds.tooltip.modUnchanged=%s（%s）
+cherishedworlds.tooltip.moreMods=……还有 %s 个模组
+cherishedworlds.tooltip.moreLines=……还有 %s 行
+
+cherishedworlds.config.enabled=启用世界提示框
+cherishedworlds.config.activation=提示框显示条件
+cherishedworlds.config.hoverDelay=悬停延迟（毫秒）
+cherishedworlds.config.maxWidth=提示框最大宽度
+cherishedworlds.config.showSeed=显示世界种子
+cherishedworlds.config.showWorldType=显示世界类型
+cherishedworlds.config.showTime=显示游戏天数和时间
+cherishedworlds.config.showPlayer=显示玩家坐标和所在维度
+cherishedworlds.config.modDetails=模组详细信息的显示条件
+cherishedworlds.config.showUnchangedMods=包含未更改的模组
+cherishedworlds.config.maxModLines=最大模组条目数
